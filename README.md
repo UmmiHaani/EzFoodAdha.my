@@ -12,6 +12,15 @@ Years later, this project still matters to me. It is not just code; it is proof 
 
 ---
 
+## Live demo
+
+<!-- Replace the URL below after you deploy on InfinityFree -->
+**Live site:** _Coming soon — [deploy on InfinityFree](DEPLOY_INFINITYFREE.md)_
+
+> GitHub shows source code only. The working app runs on a PHP host. See **[DEPLOY_INFINITYFREE.md](DEPLOY_INFINITYFREE.md)** for step-by-step free hosting.
+
+---
+
 ## What this project does
 
 - **Public storefront** — browse menu, cart, checkout, customer login/signup  
@@ -54,10 +63,7 @@ Years later, this project still matters to me. It is not just code; it is proof 
    - Import: `database/ADHA_db.sql`
 
 4. **Database connection** (if needed)  
-   Edit `admin/db_connect.php` to match your MySQL user/password:
-   ```php
-   $conn = new mysqli('127.0.0.1', 'root', '', 'ADHA_db', 3306);
-   ```
+   Copy `admin/config.example.php` to `admin/config.php` and set local MySQL details (XAMPP defaults are already in the example comments).
 
 5. **Run the site**
    - Storefront: `http://localhost/Online_Food_Ordering_System/`
@@ -104,9 +110,16 @@ Sample customer accounts may exist in the imported SQL dump (`user_info` table).
 
 ---
 
+## Deploy online (free)
+
+See **[DEPLOY_INFINITYFREE.md](DEPLOY_INFINITYFREE.md)** for InfinityFree setup, `admin/config.php`, and optional GitHub Actions FTP deploy.
+
+---
+
 ## Notes for developers
 
 - The `archived` column on `orders` is added automatically on first admin load if missing.
+- Production DB credentials go in `admin/config.php` (gitignored), not in Git.
 - Site name, logos, and content are managed under **Admin → Site settings**.
 - Copyright: © 2021 **Haani Shahrul**
 
