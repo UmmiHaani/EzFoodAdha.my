@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 
 --
 -- Database: `db_adha`
+-- Local (XAMPP): create database `db_adha` in phpMyAdmin first, select it, then import.
+-- InfinityFree: create database in vPanel first, open it in phpMyAdmin, then import.
+-- (Shared hosts do not allow CREATE DATABASE in SQL imports.)
 --
-
-CREATE DATABASE IF NOT EXISTS `db_adha` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `db_adha`;
 
 -- --------------------------------------------------------
 

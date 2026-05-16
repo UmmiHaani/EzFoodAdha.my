@@ -60,7 +60,8 @@ Years later, this project still matters to me. It is not just code; it is proof 
 3. **Create the database**
    - Open [phpMyAdmin](http://localhost/phpmyadmin)
    - Create a database named **`db_adha`**
-   - Import: `database/db_adha.sql`
+   - Click **`db_adha`** in the left sidebar, then **Import** → `database/db_adha.sql`  
+   - (On free hosts like InfinityFree, create the database in the hosting panel first — the SQL file does not run `CREATE DATABASE`.)
 
 4. **Database connection** (if needed)  
    Copy `admin/config.example.php` to `admin/config.php` and set local MySQL details (XAMPP defaults are already in the example comments).

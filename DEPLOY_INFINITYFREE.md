@@ -10,13 +10,16 @@ GitHub stores your code. InfinityFree runs the live PHP + MySQL site.
 
 ### MySQL database
 
-4. vPanel → **MySQL Databases** → create a database.
-5. Write down:
+4. vPanel → **MySQL Databases** → **Create database** (name it `db_adha` — InfinityFree adds a prefix, e.g. `if0_12345678_db_adha`).
+5. Write down the **full database name** exactly as shown in vPanel:
    - **MySQL Hostname** (e.g. `sql123.infinityfree.com`) — not `127.0.0.1`
-   - **Database name**
+   - **Database name** (use this full name in `admin/config.php`)
    - **Username**
    - **Password**
-6. Open **phpMyAdmin** → select your database → **Import** → choose `database/db_adha.sql` from this project.
+6. Open **phpMyAdmin** → click your database in the **left sidebar** (it must be selected).
+7. **Import** → choose `database/db_adha.sql` → **Go**.
+
+> **`CREATE DATABASE` error?** Shared hosting blocks that. Create the database in vPanel first, select it in phpMyAdmin, then import. The SQL file only creates tables.
 
 ### FTP (for upload or GitHub Actions)
 
