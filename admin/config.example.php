@@ -9,6 +9,6 @@ return [
 	'db_host' => 'sqlXXX.infinityfree.com',
 	'db_user' => 'if0_xxxxx_user',
 	'db_pass' => 'your_database_password',
-	'db_name' => 'if0_xxxxx_ADHA_db',
+	'db_name' => 'if0_xxxxx_db_adha',
 	'db_port' => 3306,
 ];

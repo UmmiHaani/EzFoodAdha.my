@@ -4,7 +4,7 @@ $defaults = [
 	'db_host' => '127.0.0.1',
 	'db_user' => 'root',
 	'db_pass' => '',
-	'db_name' => 'ADHA_db',
+	'db_name' => 'db_adha',
 	'db_port' => 3306,
 ];
 

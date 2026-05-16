@@ -31,7 +31,7 @@ Years later, this project still matters to me. It is not just code; it is proof 
 ## Tech stack
 
 - PHP  
-- MySQL (database: `ADHA_db`)  
+- MySQL (database: `db_adha`)  
 - HTML, CSS, JavaScript  
 - Bootstrap 4  
 
@@ -59,8 +59,8 @@ Years later, this project still matters to me. It is not just code; it is proof 
 
 3. **Create the database**
    - Open [phpMyAdmin](http://localhost/phpmyadmin)
-   - Create a database named **`ADHA_db`**
-   - Import: `database/ADHA_db.sql`
+   - Create a database named **`db_adha`**
+   - Import: `database/db_adha.sql`
 
 4. **Database connection** (if needed)  
    Copy `admin/config.example.php` to `admin/config.php` and set local MySQL details (XAMPP defaults are already in the example comments).
@@ -104,7 +104,7 @@ Sample customer accounts may exist in the imported SQL dump (`user_info` table).
 │   ├── home.php       # Dashboard
 │   └── ...
 ├── database/
-│   └── ADHA_db.sql    # Database schema & sample data
+│   └── db_adha.sql    # Database schema & sample data
 └── assets/img/        # Uploaded images (logos, menu photos)
 ```
 

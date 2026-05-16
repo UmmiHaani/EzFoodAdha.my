@@ -16,7 +16,7 @@ GitHub stores your code. InfinityFree runs the live PHP + MySQL site.
    - **Database name**
    - **Username**
    - **Password**
-6. Open **phpMyAdmin** → select your database → **Import** → choose `database/ADHA_db.sql` from this project.
+6. Open **phpMyAdmin** → select your database → **Import** → choose `database/db_adha.sql` from this project.
 
 ### FTP (for upload or GitHub Actions)
 
@@ -58,7 +58,7 @@ return [
     'db_host' => 'sql123.infinityfree.com',
     'db_user' => 'if0_12345678',
     'db_pass' => 'your_real_password',
-    'db_name' => 'if0_12345678_ADHA_db',
+    'db_name' => 'if0_12345678_db_adha',
     'db_port' => 3306,
 ];
 ```

@@ -18,11 +18,11 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ADHA_db`
+-- Database: `db_adha`
 --
 
-CREATE DATABASE IF NOT EXISTS `ADHA_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `ADHA_db`;
+CREATE DATABASE IF NOT EXISTS `db_adha` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_adha`;
 
 -- --------------------------------------------------------
 
