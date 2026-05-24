@@ -1,14 +1,8 @@
 <?php
 /**
- * Copy this file to config.php and fill in your host's MySQL details.
- * config.php is not committed to Git (see .gitignore).
+ * Database credentials now live in config/config.php.
+ * Copy ../config/config.example.php to ../config/config.php and edit your MySQL details.
  *
- * InfinityFree: find these in vPanel → MySQL Databases
+ * Legacy: admin/config.php is still read if config/config.php does not exist.
  */
-return [
-	'db_host' => 'sqlXXX.infinityfree.com',
-	'db_user' => 'if0_xxxxx_user',
-	'db_pass' => 'your_database_password',
-	'db_name' => 'if0_xxxxx_db_adha',
-	'db_port' => 3306,
-];
+return require dirname(__DIR__) . '/config/config.example.php';

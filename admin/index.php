@@ -11,7 +11,7 @@
 <?php
 	session_start();
   if(!isset($_SESSION['login_id']))
-    header('location:../index.php?page=login');
+    header('location:../login.php');
  include('./header.php'); 
  // include('./auth.php'); 
  ?>
@@ -31,8 +31,14 @@
     </div>
   </div>
   <main id="view-panel" >
-      <?php $page = isset($_GET['page']) ? $_GET['page'] :'home'; ?>
-  	<?php include $page.'.php' ?>
+      <?php
+      $allowed_pages = ['home', 'menu', 'categories', 'orders', 'users', 'site_settings', 'view_order', 'checkout'];
+      $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+      if (!in_array($page, $allowed_pages, true)) {
+          $page = 'home';
+      }
+      ?>
+  	<?php include __DIR__ . '/' . $page . '.php' ?>
   	
 
   </main>

@@ -1,6 +1,7 @@
 .DS_Store
 Thumbs.db
 admin/config.php
+config/config.php
 *.log
 .idea/
 .vscode/

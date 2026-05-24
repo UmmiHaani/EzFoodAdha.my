@@ -23,7 +23,6 @@ $site_logo = $_SESSION['setting_logo_img'] ?? '';
         <div class="menu-filters text-center mb-4">
             <button type="button" class="btn btn-sm btn-outline-primary menu-filter-btn active" data-category="all">All</button>
             <?php
-            include 'admin/db_connect.php';
             $categories = $conn->query("SELECT * FROM category_list ORDER BY name ASC");
             while($cat = $categories->fetch_assoc()):
             ?>
@@ -69,6 +68,6 @@ $site_logo = $_SESSION['setting_logo_img'] ?? '';
     });
 
     $('.view_prod').click(function(){
-        uni_modal_right('Product','view_prod.php?id='+$(this).attr('data-id'))
+        uni_modal_right('Product','pages/view_prod.php?id='+$(this).attr('data-id'))
     })
 </script>

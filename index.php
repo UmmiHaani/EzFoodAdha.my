@@ -2,7 +2,7 @@
 <html lang="en">
     <?php
     session_start();
-    include('admin/db_connect.php');
+    require_once __DIR__ . '/config/db_connect.php';
 
 	$query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
 	foreach ($query as $key => $value) {
@@ -13,7 +13,11 @@
     ?>
 
     <?php
+    $allowed_pages = ['home', 'about', 'cart_list', 'checkout', 'view_prod'];
     $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+    if (!in_array($page, $allowed_pages, true)) {
+        $page = 'home';
+    }
     $is_home = ($page === 'home');
     $page_body_classes = array(
         'home' => 'home-page',
@@ -82,7 +86,7 @@
             </div>
         </nav>
        
-        <?php include $page.'.php'; ?>
+        <?php include __DIR__ . '/pages/' . $page . '.php'; ?>
        
 
 <div class="modal fade" id="confirm_modal" role='dialog'>

@@ -29,7 +29,7 @@ $login_url = 'login.php?embed=1&redirect='.urlencode($redirect);
 
 if(!$is_embed){
 
-    $login_url = 'index.php?page=login&redirect='.urlencode($redirect);
+    $login_url = 'login.php?embed=1&redirect='.urlencode($redirect);
 
 }
 

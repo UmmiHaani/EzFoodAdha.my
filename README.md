@@ -14,10 +14,10 @@ Years later, this project still matters to me. It is not just code; it is proof 
 
 ## Live demo
 
-<!-- Replace the URL below after you deploy on InfinityFree -->
-**Live site:** _Coming soon — [deploy on InfinityFree](DEPLOY_INFINITYFREE.md)_
+<!-- Replace the URL below after you deploy -->
+**Live site:** _Coming soon_
 
-> GitHub shows source code only. The working app runs on a PHP host. See **[DEPLOY_INFINITYFREE.md](DEPLOY_INFINITYFREE.md)** for step-by-step free hosting.
+> GitHub shows source code only. The working app runs on a PHP host (e.g. [InfinityFree](https://infinityfree.com)). See **Deploy online** below.
 
 ---
 
@@ -64,7 +64,7 @@ Years later, this project still matters to me. It is not just code; it is proof 
    - (On free hosts like InfinityFree, create the database in the hosting panel first — the SQL file does not run `CREATE DATABASE`.)
 
 4. **Database connection** (if needed)  
-   Copy `admin/config.example.php` to `admin/config.php` and set local MySQL details (XAMPP defaults are already in the example comments).
+   Copy `config/config.example.php` to `config/config.php` and set local MySQL details (XAMPP defaults are already in the example comments).
 
 5. **Run the site**
    - Storefront: `http://localhost/Online_Food_Ordering_System/`
@@ -95,32 +95,45 @@ Sample customer accounts may exist in the imported SQL dump (`user_info` table).
 ## Project structure (overview)
 
 ```
-├── index.php          # Main storefront router
-├── home.php           # Home / menu browsing
-├── cart_list.php      # Shopping cart
-├── checkout.php       # Checkout
-├── login.php / signup.php
-├── admin/             # Admin panel
-│   ├── index.php
-│   ├── home.php       # Dashboard
+├── index.php              # Storefront router (?page=home|about|cart_list|checkout)
+├── pages/                 # Storefront views (included by router)
+├── login.php / signup.php # Customer auth (standalone)
+├── header.php / footer.php
+├── config/
+│   ├── config.example.php # Copy to config.php (gitignored)
+│   └── db_connect.php     # MySQL connection
+├── admin/                 # Admin panel
+│   ├── index.php          # Admin router
+│   ├── ajax.php           # Form/AJAX actions
 │   └── ...
+├── includes/              # Shared PHP helpers
 ├── database/
-│   └── db_adha.sql    # Database schema & sample data
-└── assets/img/        # Uploaded images (logos, menu photos)
+│   └── db_adha.sql        # Schema & sample data
+├── docs/
+│   └── ARCHITECTURE.md    # Request flow & layout
+└── assets/img/            # Uploaded images (logos, menu photos)
 ```
 
 ---
 
 ## Deploy online (free)
 
-See **[DEPLOY_INFINITYFREE.md](DEPLOY_INFINITYFREE.md)** for InfinityFree setup, `admin/config.php`, and optional GitHub Actions FTP deploy.
+Example flow for [InfinityFree](https://infinityfree.com) (other PHP hosts are similar):
+
+1. Create a hosting account and a MySQL database in the control panel (note hostname, database name, user, password).
+2. In phpMyAdmin, select your database, then **Import** → `database/db_adha.sql` (create the database in the panel first — the SQL file does not run `CREATE DATABASE`).
+3. Upload the project to `htdocs` so `index.php` is at the web root.
+4. On the server only, copy `config/config.example.php` → `config/config.php` and enter your MySQL details. Do not commit real passwords to Git. Legacy `admin/config.php` still works if you already use it.
+5. Open the storefront URL, then `/admin/`. Change the default admin password.
+6. **Optional:** add GitHub Actions secrets `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD` — the workflow in `.github/workflows/deploy-infinityfree.yml` deploys on push to `main` and skips `config/config.php`.
 
 ---
 
 ## Notes for developers
 
+- See **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** for request flow and folder roles.
 - The `archived` column on `orders` is added automatically on first admin load if missing.
-- Production DB credentials go in `admin/config.php` (gitignored), not in Git.
+- Production DB credentials go in `config/config.php` (gitignored), not in Git. Legacy `admin/config.php` is still supported if present.
 - Site name, logos, and content are managed under **Admin → Site settings**.
 - Copyright: © 2021 **Haani Shahrul**
 
@@ -128,6 +141,6 @@ See **[DEPLOY_INFINITYFREE.md](DEPLOY_INFINITYFREE.md)** for InfinityFree setup,
 
 ## License & use
 
-This project was built for learning and for my school’s canteen during COVID-19. Feel free to study the code; please credit the original author if you share or adapt it.
+This project was built for learning and for my school’s canteen during COVID-19. Feel free to study the code; please credit **Haani Shahrul** if you share or adapt it.
 
 **Built with care during a difficult time—and still one of my proudest first projects.**
